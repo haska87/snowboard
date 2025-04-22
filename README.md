@@ -12,3 +12,5 @@ A web application to help snowboarders choose the right board length based on we
 ### Frontend (React)
 1. Install dependencies: `cd frontend && npm install`
 2. Run: `npm run dev`
+=======
+# snowboard
