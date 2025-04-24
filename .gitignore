@@ -1,15 +1,16 @@
 # Python
-
-**pycache**/ \*.pyc venv/ .env
+**pycache**/
+\*.pyc
+venv/
+.env
 
 # Node.js
-
-node_modules/ dist/
+node_modules/
+dist/
 
 # IDE
-
-.vscode/ .idea/
+.vscode/
+.idea/
 
 # Logs
-
 \*.log
