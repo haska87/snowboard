@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import FormField from './FormField';
+import BoardSizeGuide from './BoardSizeGuide';
 
 const BoardSelector = ({ setPage }) => {
   const [formData, setFormData] = useState({
@@ -39,14 +40,14 @@ const BoardSelector = ({ setPage }) => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div id="calculator" className="min-h-screen bg-gray-50">
       {/* Navigation */}
       <div className="max-w-4xl mx-auto p-6">
         <button
           onClick={() => setPage('home')}
           className="text-blue-600 hover:underline mb-6"
         >
-          ← Back to Main Menu
+          ← Назад
         </button>
       </div>
 
@@ -97,19 +98,8 @@ const BoardSelector = ({ setPage }) => {
         </div>
       </div>
 
-      {/* Detailed Information Section */}
-      <div className="max-w-4xl mx-auto px-6 mb-8">
-        <div className="bg-white shadow-lg rounded-lg p-8 border-2 border-gray-200">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">Board Selection Guide</h2>
-          
-          {/* Placeholder for detailed information */}
-          <div className="prose max-w-none">
-            <p className="text-gray-600">
-              Detailed information about board selection will be added here.
-            </p>
-          </div>
-        </div>
-      </div>
+      {/* Guide Section */}
+      <BoardSizeGuide setPage={setPage} />
     </div>
   );
 };

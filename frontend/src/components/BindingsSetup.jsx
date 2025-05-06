@@ -46,7 +46,7 @@ const BindingsSetup = ({ setPage }) => {
           onClick={() => setPage('home')}
           className="text-blue-600 hover:underline mb-6"
         >
-          ← Back to Main Menu
+          ← Назад
         </button>
       </div>
 
