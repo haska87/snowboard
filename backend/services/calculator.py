@@ -1,3 +1,5 @@
+from schemas.snowboard import SnowboardInput, BindingsStanceInput, BindingsStanceOutput
+
 table = {
     40: {140: 134, 180: 144},
     45: {145: 138, 180: 146},
@@ -5,7 +7,7 @@ table = {
     55: {150: 141, 185: 152},
     60: {150: 143, 185: 154},
     65: {155: 146, 185: 156},
-    70: {155: 148, 185: 157},
+    70: {155: 149, 185: 158},
     75: {155: 151, 190: 161},
     80: {155: 152, 190: 163},
     85: {160: 155, 190: 164},
@@ -19,7 +21,27 @@ table = {
     125: {170: 164, 200: 173},
 }
 
-def interpolate_height(height, height_data):
+weights = [40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125]
+
+MIN_OFFSET = 2.5
+MAX_OFFSET = 5
+
+STYLE_OFFSETS = {
+    "beginner": -1.5,
+    "freestyle": -1,
+    "all-mountain": 0,
+    "freeride": 1,
+    "carving": 1.5
+}
+
+def style_offset(weight) -> float:
+    if weight <= weights[0]:
+        return MIN_OFFSET
+    if weight >= weights[-1]:
+        return MAX_OFFSET
+    return MIN_OFFSET + (MAX_OFFSET - MIN_OFFSET) / (weights[-1] - weights[0]) * (weight - weights[0])
+
+def interpolate_height(height, height_data) -> float:
     min_h = min(height_data.keys())
     max_h = max(height_data.keys())
     if height <= min_h:
@@ -28,21 +50,23 @@ def interpolate_height(height, height_data):
         return height_data[max_h]
     return height_data[min_h] + (height_data[max_h] - height_data[min_h]) / (max_h - min_h) * (height - min_h)
 
-def get_board_size(weight, height):
-    weights = sorted(table.keys())
+def get_board_size(data: SnowboardInput) -> float:
+    weight = data.weight
+    height = data.height
+    offset = style_offset(weight) * STYLE_OFFSETS.get(data.riding_style, 0)
     if weight <= weights[0]:
-        return interpolate_height(height, table[weights[0]])
+        return interpolate_height(height, table[weights[0]]) + offset
     if weight >= weights[-1]:
-        return interpolate_height(height, table[weights[-1]])
+        return interpolate_height(height, table[weights[-1]]) + offset
     if weight in table:
-        return interpolate_height(height, table[weight])
+        return interpolate_height(height, table[weight]) + offset
     lw = max(w for w in weights if w < weight)
     uw = min(w for w in weights if w > weight)
     low_size = interpolate_height(height, table[lw])
     up_size = interpolate_height(height, table[uw])
-    return low_size + (up_size - low_size) / (uw - lw) * (weight - lw)
+    return low_size + (up_size - low_size) / (uw - lw) * (weight - lw) + offset
 
-def calculate_bindings(data):
+def calculate_bindings(data: BindingsStanceInput) -> BindingsStanceOutput:
     if data.height <= 0 or data.heel_to_knee <= 0:
         raise ValueError("Все параметры должны быть больше 0")
     stance_width = data.heel_to_knee

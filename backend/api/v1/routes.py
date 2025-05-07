@@ -11,14 +11,10 @@ async def recommend_board(data: SnowboardInput):
     if data.height >= 211 or data.weight >= 151:
         raise HTTPException(status_code=400, detail="Рост и вес должны быть меньше 211 см и 151 кг соответственно")
 
-    base_size = round(get_board_size(data.weight, data.height))
-    if data.riding_style == "freestyle":
-        size = base_size - 2
-    elif data.riding_style == "freeride":
-        size = base_size + 2
-    else:
-        size = base_size
-    return SnowboardOutput(recommended_length=round(size, 1))
+    try:
+        return SnowboardOutput(recommended_length=round(get_board_size(data), 0))
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
 
 @router.post("/bindings", response_model=BindingsStanceOutput)
 async def bindings_stance(data: BindingsStanceInput):
