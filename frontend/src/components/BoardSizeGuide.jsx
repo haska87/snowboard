@@ -52,9 +52,9 @@ const BoardSizeGuide = ({ setPage }) => {
 
           <section className="space-y-6">
             <h3 className="text-2xl font-bold text-gray-800 border-b pb-2">Таблица подбора ростовки</h3>
-            <p className="text-gray-600">Эта таблица — самый точный инструмент для выбора длины сноуборда, так как она учитывает вес и рост одновременно. <button onClick={() => {
+            <p className="text-gray-600">Эта таблица — более точный инструмент для выбора длины сноуборда, так как она учитывает вес и рост одновременно. <button onClick={() => {
               document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
-            }} className="text-blue-600 hover:text-blue-800 underline font-medium">Наш калькулятор</button> использует именно эту таблицу для расчёта идеальной длины доски.</p>
+            }} className="text-blue-600 hover:text-blue-800 underline font-medium">Наш калькулятор</button> использует такую таблицу для расчёта рекомендуемой длины доски.</p>
             <div className="overflow-x-auto rounded-xl border border-gray-200">
               <table className="min-w-full bg-white">
                 <thead>
@@ -115,7 +115,7 @@ const BoardSizeGuide = ({ setPage }) => {
             </div>
             <p className="text-sm text-gray-500 mt-2">
               * Таблица показывает рекомендуемую длину сноуборда в зависимости от веса и роста райдера для универсального катания (all-mountain). 
-              Для более точного подбора учитывайте также стиль катания и уровень мастерства. 
+              Для более точного подбора учитывайте бренд, стиль катания и уровень мастерства. 
             </p>
           </section>
 

@@ -191,7 +191,7 @@ const BindingSetupGuide = ({ setPage }) => {
               </p>
 
               <div className="space-y-6">
-                <div>
+                <div className="bg-white p-4 rounded-lg border border-gray-200">
                   <h4 className="text-xl font-semibold text-gray-800 mb-3">Общие советы</h4>
                   <ul className="list-disc list-inside text-gray-600 space-y-2">
                     <li><strong>Центрирование ботинка:</strong> Убедитесь, что ботинок центрирован, с равным выносом носка и пятки или слегка большим выносом пятки.</li>
@@ -201,7 +201,7 @@ const BindingSetupGuide = ({ setPage }) => {
                   </ul>
                 </div>
 
-                <div>
+                <div className="bg-white p-4 rounded-lg border border-gray-200">
                   <h4 className="text-xl font-semibold text-gray-800 mb-3">Советы для разных стилей</h4>
                   <ul className="list-disc list-inside text-gray-600 space-y-2">
                     <li><strong>Фристайл:</strong> Мягкие крепления, duck stance, широкая стойка, минимальный наклон хайбэка.</li>
@@ -210,63 +210,17 @@ const BindingSetupGuide = ({ setPage }) => {
                   </ul>
                 </div>
 
-                <div>
+                <div className="bg-white p-4 rounded-lg border border-gray-200">
                   <h4 className="text-xl font-semibold text-gray-800 mb-3">Учет уровня мастерства</h4>
                   <p className="text-gray-600">
                     Новичкам подойдут мягкие и щадящие настройки для легкого обучения. Средний уровень может переходить к настройкам под стиль катания. Продвинутые райдеры точно настраивают оборудование под свои дисциплины.
                   </p>
                 </div>
 
-                <div>
+                <div className="bg-white p-4 rounded-lg border border-gray-200">
                   <h4 className="text-xl font-semibold text-gray-800 mb-3">Учет физических параметров</h4>
                   <p className="text-gray-600">
                     Высокие райдеры могут предпочесть более широкую стойку. Если стандартная ширина неудобна, используйте расстояние от пятки до колена как альтернативу. Райдеры с длинными ногами могут выбрать более широкую стойку для лучшего рычага.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Mistakes Section */}
-          <section className="space-y-6">
-            <h3 className="text-2xl font-bold text-gray-800 border-b pb-2">Распространенные ошибки</h3>
-            <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
-              <p className="text-gray-600 mb-4">
-                Неправильная настройка может привести к дискомфорту или снижению производительности. Вот как их избежать.
-              </p>
-
-              <div className="space-y-6">
-                <div>
-                  <h4 className="text-xl font-semibold text-gray-800 mb-3">Ошибки для каждого уровня и стиля</h4>
-                  <ul className="list-disc list-inside text-gray-600 space-y-2">
-                    <li><strong>Слишком широкая стойка:</strong> Затрудняет повороты и вызывает боль в коленях, особенно для высоких райдеров.</li>
-                    <li><strong>Слишком узкая стойка:</strong> Приводит к нестабильности, особенно для новичков.</li>
-                    <li><strong>Неправильные углы:</strong> Forward stance для фристайла затрудняет катание switch, а duck stance для фрирайда снижает контроль.</li>
-                    <li><strong>Неправильное центрирование ботинка:</strong> Вызывает перетаскивание носка или пятки.</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-xl font-semibold text-gray-800 mb-3">Последствия неправильной настройки</h4>
-                  <p className="text-gray-600">
-                    Неправильные углы могут напрягать икры и колени, а неподходящая ширина стойки снижает маневренность или стабильность. Чрезмерные углы (разница более 30°) могут привести к травмам колен.
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="text-xl font-semibold text-gray-800 mb-3">Как избежать ошибок</h4>
-                  <ul className="list-disc list-inside text-gray-600 space-y-2">
-                    <li>Проверяйте настройки на склоне и корректируйте по ощущениям.</li>
-                    <li>Используйте рекомендуемые диапазоны углов и ширины.</li>
-                    <li>Убедитесь, что ботинки центрированы и винты затянуты.</li>
-                    <li>Прислушивайтесь к личному комфорту.</li>
-                  </ul>
-                </div>
-
-                <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-                  <h4 className="text-lg font-semibold text-blue-800 mb-2">Пример</h4>
-                  <p className="text-blue-700">
-                    Высокий фристайлер (185 см) с узкой стойкой (48 см) может испытывать нестабильность. Увеличьте ширину до 58–63 см и используйте duck stance (+15°/-15°).
                   </p>
                 </div>
               </div>
